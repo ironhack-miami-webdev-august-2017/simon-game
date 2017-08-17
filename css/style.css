@@ -1,0 +1,94 @@
+h1 {
+  margin: 20px;
+  text-align: center;
+  font-family: 'Righteous', cursive;
+  font-size: 120px;
+}
+
+#buttons-container {
+  margin: 0 auto;
+  width: 600px;
+  position: relative;
+}
+
+button {
+  margin: 0 -2px;
+  border: 10px solid #000;
+  padding: 0;
+  width: 300px;
+  height: 300px;
+  outline: none;
+  cursor: pointer;
+}
+
+.glow {
+  border-color: rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 10;
+}
+
+#green {
+  border-top-left-radius: 100%;
+  background-color: rgba(35, 200, 82, 0.4);
+}
+#green:hover {
+  background-color: rgb(35, 200, 82);
+}
+#green.glow {
+  background-color: rgb(35, 200, 82);
+  box-shadow: 0px 0 45px 15px green;
+}
+
+#red {
+  border-top-right-radius: 100%;
+  background-color: rgba(254, 35, 34, 0.4);
+}
+#red:hover {
+  background-color: rgb(254, 35, 34);
+}
+#red.glow {
+  background-color: rgb(254, 35, 34);
+  box-shadow: 0px 0 45px 15px crimson;
+}
+
+#yellow {
+  border-bottom-left-radius: 100%;
+  background-color: rgba(243, 194, 16, 0.4);
+}
+#yellow:hover {
+  background-color: rgb(243, 194, 16);
+}
+#yellow.glow {
+  background-color: rgb(243, 194, 16);
+  box-shadow: 0px 0 45px 15px yellow;
+}
+
+#blue {
+  border-bottom-right-radius: 100%;
+  background-color: rgba(0, 103, 208, 0.4);
+}
+#blue:hover {
+  background-color: rgb(0, 103, 208);
+}
+#blue.glow {
+  background-color: rgb(0, 103, 208);
+  box-shadow: 0px 0 45px 15px blue;
+}
+
+#counter {
+  z-index: 15;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  border-radius: 100%;
+  width: 200px;
+  height: 200px;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 100px;
+  line-height: 200px;
+}
