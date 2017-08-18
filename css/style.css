@@ -11,6 +11,10 @@ h1 {
   position: relative;
 }
 
+#buttons-container.blocked button {
+  pointer-events: none;
+}
+
 button {
   margin: 0 -2px;
   border: 10px solid #000;
@@ -91,4 +95,59 @@ button {
   font-family: Arial, sans-serif;
   font-size: 100px;
   line-height: 200px;
+}
+
+#feedback {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  display: none;
+}
+
+#feedback img {
+  border-radius: 3px;
+}
+
+#feedback a {
+  display: block;
+  border-radius: 3px;
+  padding: 20px 40px;
+  margin-top: 20px;
+  background-color: indigo;
+  color: white;
+  font-size: 40px;
+  text-align: center;
+  text-decoration: none;
+}
+
+#round-win {
+  position: absolute;
+  top: 0;
+  left: -300px;
+  width: 300px;
+}
+#round-win.play {
+  animation: do-the-slide 4s running;
+}
+
+#round-win img {
+  border-bottom-right-radius: 3px;
+  width: 100%;
+}
+
+@keyframes do-the-slide {
+  0% {
+    left: -300px;
+  }
+
+  50%,
+  75% {
+    left: 0;
+  }
+
+  100% {
+    left: -300px;
+  }
 }

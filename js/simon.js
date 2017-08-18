@@ -5,9 +5,21 @@ function SimonGame () {
     this.sequence = [];
 
     this.currentClickSequence = 0;
+
+    this.gameOverImages = [
+      './images/game-over.gif',
+      './images/didnt-see.gif'
+    ];
 }
 
 SimonGame.prototype.startGame = function () {
+    // reset sequence in case we are starting over
+    this.sequence = [];
+    this.currentClickSequence = 0;
+
+    // hide Raul Julia in case we are starting over
+    $('#feedback').fadeOut(1000);
+
     // add the first color to the sequence
     this.addColor();
 
@@ -35,6 +47,9 @@ SimonGame.prototype.showSequence = function () {
     // make a variable to avoid "this" problems
     var ourSequence = this.sequence;
 
+    // block user clicks while the glow happens
+    $("#buttons-container").addClass("blocked");
+
     // turn on a light every second
     var timerId = setInterval(function () {
         // get the current color
@@ -54,6 +69,22 @@ SimonGame.prototype.showSequence = function () {
         // stop the timer if there are no more colors in sequence
         if (i === ourSequence.length) {
             clearInterval(timerId);
+
+            // restore user clicks after lights are done
+            $("#buttons-container").removeClass("blocked");
         }
     }, 1000);
+};
+
+SimonGame.prototype.gameOver = function () {
+    var randomIndex = Math.floor(Math.random() * this.gameOverImages.length);
+
+    var randomImage = this.gameOverImages[randomIndex];
+
+    $('#feedback img').attr('src', randomImage);
+
+    $('#feedback').fadeIn(1000);
+
+    // block user clicks while it says game over
+    $("#buttons-container").addClass("blocked");
 };

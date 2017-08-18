@@ -21,7 +21,12 @@ $(document).ready(function () {
 
             // go to the next round if that was the last color
             if (myGame.currentClickSequence === myGame.sequence.length) {
-                alert('Good Job 👍🏽');
+                // remove the class and then add it to restart the animation
+                $('#round-win').removeClass('play');
+                setTimeout(function () {
+                    $('#round-win').addClass('play');
+                }, 10);
+
                 myGame.addColor();
                 myGame.showSequence();
                 myGame.currentClickSequence = 0;
@@ -29,9 +34,17 @@ $(document).ready(function () {
             }
         }
 
+        // you messed up any color of the sequence
         else {
-            alert('You lose 👎🏽');
+            myGame.gameOver();
         }
     });
 
+});
+
+
+$(document).ready(function () {
+    $('#feedback a').click(function () {
+        myGame.startGame();
+    });
 });
